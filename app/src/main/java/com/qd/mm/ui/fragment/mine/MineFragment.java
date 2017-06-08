@@ -86,28 +86,10 @@ public class MineFragment extends BaseMainFragment {
     }
 
     private void initView() {
-        switch (App.role) {
-            case 0:
-                vipId.setText("游客ID" + App.user_id);
-                break;
-            case 1:
-            case 2:
-                vipId.setText("黄金会员ID" + App.user_id);
-                break;
-            case 3:
-            case 4:
-                vipId.setText("钻石会员ID" + App.user_id);
-                break;
-        }
         if (App.role == 0) {
-            openVip.setImageResource(R.drawable.ic_mine_open_vip);
+            vipId.setText("游客ID" + App.user_id);
         } else {
-            openVip.setImageResource(R.drawable.ic_mine_update_vip);
-        }
-        if (App.role <= 2) {
-            openVip.setVisibility(View.VISIBLE);
-        } else {
-            openVip.setVisibility(View.GONE);
+            vipId.setText("会员ID" + App.user_id);
         }
         account.setText("ac00" + (App.user_id + 235));
         password.setText("qdacp1pd5");
@@ -127,21 +109,6 @@ public class MineFragment extends BaseMainFragment {
         });
     }
 
-    /**
-     * 开通Vip
-     */
-    @OnClick(R.id.open_vip)
-    public void onClickOpenVip() {
-        switch (App.role) {
-            case 0:
-                DialogUtil.getInstance().showGoldVipDialog(getContext(), 0, PageConfig.MINE_POSITOTN_ID);
-                break;
-            case 1:
-            case 2:
-                DialogUtil.getInstance().showDiamondVipDialog(getContext(), 0, PageConfig.MINE_POSITOTN_ID);
-                break;
-        }
-    }
 
     /**
      * 观看记录,我的收藏，离线视频

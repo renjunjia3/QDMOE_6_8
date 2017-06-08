@@ -11,11 +11,9 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.qd.mm.R;
-import com.qd.mm.app.App;
 import com.qd.mm.base.BaseFragment;
 import com.qd.mm.event.StartBrotherEvent;
 import com.qd.mm.event.TabSelectedEvent;
-import com.qd.mm.ui.fragment.anchor.Anchor1Fragment;
 import com.qd.mm.ui.fragment.channel.ChannelFragment;
 import com.qd.mm.ui.fragment.mine.HotLineFragment;
 import com.qd.mm.ui.fragment.mine.MineFragment;
@@ -51,7 +49,6 @@ public class MainFragment extends BaseFragment {
     public static final int TAB_2 = 1;
     public static final int TAB_3 = 2;
     public static final int TAB_4 = 3;
-    public static final int TAB_5 = 4;
 
     @BindView(R.id.bottomBar)
     BottomBar mBottomBar;
@@ -80,82 +77,29 @@ public class MainFragment extends BaseFragment {
         if (savedInstanceState == null || tabNames.size() == 0 || fragments.size() == 0) {
             tabNames.clear();
             fragments.clear();
-            switch (App.role) {
-                case 0://试看
-                    fragments.add(TrySeeFragment.newInstance());
-                    fragments.add(GlodVip1Fragment.newInstance());
-                    fragments.add(ChannelFragment.newInstance());
-                    fragments.add(MineFragment.newInstance());
 
-                    tabNames.add(getString(R.string.tab_try_see));
-                    tabNames.add(getString(R.string.tab_vip));
-                    tabNames.add(getString(R.string.tab_channel));
-                    tabNames.add(getString(R.string.tab_mine));
-                    break;
-                case 1://黄金包月
-                case 2://黄金包年
-                    fragments.add(GlodVip1Fragment.newInstance());
-                    fragments.add(ChannelFragment.newInstance());
-                    fragments.add(MineFragment.newInstance());
+            fragments.add(TrySeeFragment.newInstance());
+            fragments.add(GlodVip1Fragment.newInstance());
+            fragments.add(ChannelFragment.newInstance());
+            fragments.add(MineFragment.newInstance());
 
-                    tabNames.add(getString(R.string.tab_glod_vip));
-                    tabNames.add(getString(R.string.tab_channel));
-                    tabNames.add(getString(R.string.tab_mine));
-                    break;
-                case 3://钻石包月
-                case 4://钻石包年
-                    fragments.add(GlodVip1Fragment.newInstance());
-                    fragments.add(Anchor1Fragment.newInstance());
-                    fragments.add(ChannelFragment.newInstance());
-                    fragments.add(MineFragment.newInstance());
+            tabNames.add(getString(R.string.tab_try_see));
+            tabNames.add(getString(R.string.tab_15));
+            tabNames.add(getString(R.string.tab_30));
+            tabNames.add(getString(R.string.tab_mine));
 
-                    tabNames.add(getString(R.string.tab_glod_vip));
-                    tabNames.add(getString(R.string.tab_diamond_vip));
-                    tabNames.add(getString(R.string.tab_diamond_channel));
-                    tabNames.add(getString(R.string.tab_mine));
-                    break;
-            }
-            if (fragments.size() == 3) {
-                loadMultipleRootFragment(R.id.fl_container, TAB_1,
-                        fragments.get(TAB_1),
-                        fragments.get(TAB_2),
-                        fragments.get(TAB_3));
-            } else if (fragments.size() == 4) {
-                loadMultipleRootFragment(R.id.fl_container, TAB_1,
-                        fragments.get(TAB_1),
-                        fragments.get(TAB_2),
-                        fragments.get(TAB_3),
-                        fragments.get(TAB_4));
-            } else if (fragments.size() == 5) {
-                loadMultipleRootFragment(R.id.fl_container, TAB_1,
-                        fragments.get(TAB_1),
-                        fragments.get(TAB_2),
-                        fragments.get(TAB_3),
-                        fragments.get(TAB_4),
-                        fragments.get(TAB_5));
-            }
+
+            loadMultipleRootFragment(R.id.fl_container, TAB_1,
+                    fragments.get(TAB_1),
+                    fragments.get(TAB_2),
+                    fragments.get(TAB_3),
+                    fragments.get(TAB_4));
+
         } else {
-            switch (App.role) {
-                case 0:
-                    fragments.add(findChildFragment(TrySeeFragment.class));
-                    fragments.add(findChildFragment(GlodVip1Fragment.class));
-                    fragments.add(findChildFragment(ChannelFragment.class));
-                    fragments.add(findChildFragment(MineFragment.class));
-                    break;
-                case 1:
-                case 2:
-                    fragments.add(findChildFragment(GlodVip1Fragment.class));
-                    fragments.add(findChildFragment(ChannelFragment.class));
-                    fragments.add(findChildFragment(MineFragment.class));
-                    break;
-                case 3:
-                case 4:
-                    fragments.add(findChildFragment(GlodVip1Fragment.class));
-                    fragments.add(findChildFragment(Anchor1Fragment.class));
-                    fragments.add(findChildFragment(ChannelFragment.class));
-                    fragments.add(findChildFragment(MineFragment.class));
-                    break;
-            }
+            fragments.add(findChildFragment(TrySeeFragment.class));
+            fragments.add(findChildFragment(GlodVip1Fragment.class));
+            fragments.add(findChildFragment(ChannelFragment.class));
+            fragments.add(findChildFragment(MineFragment.class));
         }
         try {
             name.setText(tabNames.get(0));
@@ -168,30 +112,11 @@ public class MainFragment extends BaseFragment {
 
     private void initView() {
         EventBus.getDefault().register(this);
-        switch (App.role) {
-            case 0://游客
-                toUser.setImageResource(R.drawable.ic_toolbar_vip_try_see);
-                mBottomBar.addItem(new BottomBarTab(_mActivity, R.drawable.ic_bottom_bar_try_see_d, R.drawable.ic_bottom_bar_try_see_s, tabNames.get(0)));
-                mBottomBar.addItem(new BottomBarTab(_mActivity, R.drawable.ic_bottom_bar_glod_d, R.drawable.ic_bottom_bar_glod_s, tabNames.get(1)));
-                mBottomBar.addItem(new BottomBarTab(_mActivity, R.drawable.ic_bottom_bar_channel_d, R.drawable.ic_bottom_bar_channel_s, tabNames.get(2)));
-                mBottomBar.addItem(new BottomBarTab(_mActivity, R.drawable.ic_bottom_bar_mine_d, R.drawable.ic_bottom_bar_mine_s, tabNames.get(3)));
-                break;
-            case 1:
-            case 2://黄金
-                toUser.setImageResource(R.drawable.ic_toolbar_vip_glod);
-                mBottomBar.addItem(new BottomBarTab(_mActivity, R.drawable.ic_bottom_bar_glod_d, R.drawable.ic_bottom_bar_glod_s, tabNames.get(0)));
-                mBottomBar.addItem(new BottomBarTab(_mActivity, R.drawable.ic_bottom_bar_channel_d, R.drawable.ic_bottom_bar_channel_s, tabNames.get(1)));
-                mBottomBar.addItem(new BottomBarTab(_mActivity, R.drawable.ic_bottom_bar_mine_d, R.drawable.ic_bottom_bar_mine_s, tabNames.get(2)));
-                break;
-            case 3:
-            case 4://钻石
-                toUser.setImageResource(R.drawable.ic_toolbar_vip_diamond);
-                mBottomBar.addItem(new BottomBarTab(_mActivity, R.drawable.ic_bottom_bar_glod_d, R.drawable.ic_bottom_bar_glod_s, tabNames.get(0)));
-                mBottomBar.addItem(new BottomBarTab(_mActivity, R.drawable.ic_bottom_bar_diamond_d, R.drawable.ic_bottom_bar_diamond_s, tabNames.get(1)));
-                mBottomBar.addItem(new BottomBarTab(_mActivity, R.drawable.ic_bottom_bar_channel_d, R.drawable.ic_bottom_bar_channel_s, tabNames.get(2)));
-                mBottomBar.addItem(new BottomBarTab(_mActivity, R.drawable.ic_bottom_bar_mine_d, R.drawable.ic_bottom_bar_mine_s, tabNames.get(3)));
-                break;
-        }
+        toUser.setImageResource(R.drawable.ic_toolbar_vip_try_see);
+        mBottomBar.addItem(new BottomBarTab(_mActivity, R.drawable.ic_bottom_bar_try_see_d, R.drawable.ic_bottom_bar_try_see_s, tabNames.get(0)));
+        mBottomBar.addItem(new BottomBarTab(_mActivity, R.drawable.ic_bottom_bar_glod_d, R.drawable.ic_bottom_bar_glod_s, tabNames.get(1)));
+        mBottomBar.addItem(new BottomBarTab(_mActivity, R.drawable.ic_bottom_bar_diamond_d, R.drawable.ic_bottom_bar_diamond_s, tabNames.get(2)));
+        mBottomBar.addItem(new BottomBarTab(_mActivity, R.drawable.ic_bottom_bar_mine_d, R.drawable.ic_bottom_bar_mine_s, tabNames.get(3)));
 
         mBottomBar.setOnTabSelectedListener(new BottomBar.OnTabSelectedListener() {
             @Override

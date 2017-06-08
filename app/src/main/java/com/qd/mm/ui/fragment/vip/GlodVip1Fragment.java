@@ -111,7 +111,7 @@ public class GlodVip1Fragment extends BaseMainFragment {
             @Override
             public void onClick(View v) {
                 if (App.role == 1 || App.role == 2) {
-                    DialogUtil.getInstance().showDiamondVipDialog(getContext(), 0, PageConfig.GLOD_POSITOTN_ID);
+                    DialogUtil.getInstance().showGoldVipDialog(getContext(), 0, PageConfig.GLOD_POSITOTN_ID);
                 }
             }
         });

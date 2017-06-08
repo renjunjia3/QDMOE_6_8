@@ -48,11 +48,7 @@ import okhttp3.Call;
 public class JCFullScreenActivity extends Activity {
 
     private final Handler mHandler = new MyHandler(this);
-    public static final int DIALOG_TYPE_GLOD = 0;//黄金
-    public static final int DIALOG_TYPE_DIAMOND = 1;//砖石
 
-    public static final String PARAM_CURRENT_TIME = "current_time";
-    public static final String PARAM_DIALOG_TYPE = "dialog_type";
     public static final String PARAM_VIDEO_INFO = "video_info";
 
     private static VideoInfo videoInfo;
@@ -126,13 +122,11 @@ public class JCFullScreenActivity extends Activity {
         if (App.role == 0) {
             mJcVideoPlayer.text2.setVisibility(View.GONE);
             mJcVideoPlayer.text3.setVisibility(View.GONE);
-            mJcVideoPlayer.text2.setText("开通会员观看完整视频");
-            mJcVideoPlayer.text3.setText("开通会员观看完整视频");
-            mJcVideoPlayer.openVip.setText("开通VIP会员");
-        } else if (App.role == 1 || App.role == 2) {
+            mJcVideoPlayer.openVip.setText("开通15元区观看更多内容");
+        } else if (App.role == 1) {
             mJcVideoPlayer.text2.setVisibility(View.GONE);
             mJcVideoPlayer.text3.setVisibility(View.GONE);
-            mJcVideoPlayer.openVip.setText("开通钻石会员观看更多内容");
+            mJcVideoPlayer.openVip.setText("升级30元区观看更多内容");
         } else {
             mJcVideoPlayer.text2.setVisibility(View.GONE);
             mJcVideoPlayer.text3.setVisibility(View.GONE);
@@ -143,16 +137,6 @@ public class JCFullScreenActivity extends Activity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent();
-                intent.putExtra(PARAM_CURRENT_TIME, mJcVideoPlayer.getCurrentPositionWhenPlaying());
-                switch (App.role) {
-                    case 0:
-                        intent.putExtra(PARAM_DIALOG_TYPE, DIALOG_TYPE_GLOD);
-                        break;
-                    case 1:
-                    case 2:
-                        intent.putExtra(PARAM_DIALOG_TYPE, DIALOG_TYPE_DIAMOND);
-                        break;
-                }
                 setResult(RESULT_OK, intent);
                 finish();
             }
@@ -282,34 +266,30 @@ public class JCFullScreenActivity extends Activity {
                         mTimer.cancel();
                         JCMediaManager.instance().mediaPlayer.stop();
                         if (builder != null && dialog != null) {
-                            builder.setMessage("非会员只能试看体验，请开通黄金会员观看更多内容");
+                            builder.setMessage("游客只能试看体验，请开通15元区或30元区体验更多精彩内容");
                             dialog.show();
                             dialog.setOnDismissListener(new DialogInterface.OnDismissListener() {
                                 @Override
                                 public void onDismiss(DialogInterface dialog) {
                                     //不是会员，试看时长大于30s 弹出看通会员的界面
                                     Intent intent = new Intent();
-                                    intent.putExtra(PARAM_CURRENT_TIME, mJcVideoPlayer.getCurrentPositionWhenPlaying());
-                                    intent.putExtra(PARAM_DIALOG_TYPE, DIALOG_TYPE_GLOD);
                                     setResult(RESULT_OK, intent);
                                     finish();
                                 }
                             });
                         }
-                    } else if ((App.role == 1 || App.role == 2) && mJcVideoPlayer.getCurrentPositionWhenPlaying() >= JCMediaManager.instance().mediaPlayer.getDuration() - 1000) {
+                    } else if ((App.role == 1) && mJcVideoPlayer.getCurrentPositionWhenPlaying() >= JCMediaManager.instance().mediaPlayer.getDuration() - 1000) {
                         timerTask.cancel();
                         mTimer.cancel();
                         JCMediaManager.instance().mediaPlayer.stop();
                         if (builder != null && dialog != null) {
-                            builder.setMessage("请升级钻石会员，观看更多内容同时解锁钻石频道栏目");
+                            builder.setMessage("请升级30元区体验更多精彩内容");
                             dialog.show();
                             dialog.setOnDismissListener(new DialogInterface.OnDismissListener() {
                                 @Override
                                 public void onDismiss(DialogInterface dialog) {
                                     //砖石会员看完视频，提示开通VPN海外会员
                                     Intent intent = new Intent();
-                                    intent.putExtra(PARAM_CURRENT_TIME, mJcVideoPlayer.getCurrentPositionWhenPlaying());
-                                    intent.putExtra(PARAM_DIALOG_TYPE, DIALOG_TYPE_DIAMOND);
                                     setResult(RESULT_OK, intent);
                                     finish();
                                 }

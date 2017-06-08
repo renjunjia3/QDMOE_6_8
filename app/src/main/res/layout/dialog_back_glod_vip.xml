@@ -68,7 +68,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:layout_marginLeft="20dp"
-                android:text="会员包月"
+                android:text="15元区优惠"
                 android:textColor="#F78650"
                 android:textSize="@dimen/text_size_big" />
 
@@ -91,7 +91,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
-                    android:text="￥28.00"
+                    android:text="￥12.00"
                     android:textColor="#db182c"
                     android:textSize="@dimen/text_size_big" />
 
@@ -101,7 +101,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
                     android:layout_marginTop="3dp"
-                    android:text="￥38.00"
+                    android:text="￥15.00"
                     android:textColor="#B5B5B5"
                     android:textSize="@dimen/text_size_small" />
             </LinearLayout>
@@ -130,7 +130,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:layout_marginLeft="20dp"
-                android:text="会员包年"
+                android:text="30元区优惠"
                 android:textColor="#EE313A"
                 android:textSize="@dimen/text_size_big" />
 
@@ -152,7 +152,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
-                    android:text="￥58.00"
+                    android:text="￥24.00"
                     android:textColor="#db182c"
                     android:textSize="@dimen/text_size_big" />
 
@@ -162,7 +162,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
                     android:layout_marginTop="3dp"
-                    android:text="￥68.00"
+                    android:text="￥30.00"
                     android:textColor="#B5B5B5"
                     android:textSize="@dimen/text_size_small" />
             </LinearLayout>

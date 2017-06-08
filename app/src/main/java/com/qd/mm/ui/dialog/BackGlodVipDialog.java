@@ -59,7 +59,7 @@ public class BackGlodVipDialog extends Dialog {
         private Context context;
 
         private int type = 1;
-        private int vip_type = PayUtil.VIP_TYPE_OPEN_GLOD_DISCOUNT_MONTH;
+        private int vip_type = PayUtil.VIP_TYPE_DISCOUNT_OPEN_15;
 
         public Builder(Context context) {
             this.context = context;
@@ -97,7 +97,7 @@ public class BackGlodVipDialog extends Dialog {
             layout.findViewById(R.id.layout_type_glod).setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    vip_type = PayUtil.VIP_TYPE_OPEN_GLOD_DISCOUNT_MONTH;
+                    vip_type = PayUtil.VIP_TYPE_DISCOUNT_OPEN_15;
                     glodChoosed.setImageResource(R.drawable.ic_vip_type_s);
                     diamondChoosed.setImageResource(R.drawable.ic_vip_type_d);
                 }
@@ -105,7 +105,7 @@ public class BackGlodVipDialog extends Dialog {
             layout.findViewById(R.id.layout_type_diamond).setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    vip_type = PayUtil.VIP_TYPE_OPEN_GLOD_DISCOUNT_YEAR;
+                    vip_type = PayUtil.VIP_TYPE_DISCOUNT_OPEN_30;
                     glodChoosed.setImageResource(R.drawable.ic_vip_type_d);
                     diamondChoosed.setImageResource(R.drawable.ic_vip_type_s);
                 }
@@ -124,8 +124,8 @@ public class BackGlodVipDialog extends Dialog {
                     } else {
                         PayUtil.getInstance().payByAliPay(context, vip_type, 0, PageConfig.BACK_OPEN_VIP_POSITOTN_ID);
                     }
-                    MainActivity.upLoadPageInfo(vip_type == PayUtil.VIP_TYPE_OPEN_GLOD_DISCOUNT_MONTH ?
-                                    PageConfig.CLICK_OPEN_VIP_GLOD_MONTH_DIACOUNT : PageConfig.CLICK_OPEN_VIP_GLOD_YEAR_DIACOUNT,
+                    MainActivity.upLoadPageInfo(vip_type == PayUtil.VIP_TYPE_DISCOUNT_OPEN_15 ?
+                                    PageConfig.CLICK_DISCOUNT_15_POSITION_ID : PageConfig.CLICK_DISCOUNT_30_POSITION_ID,
                             0, PageConfig.BACK_OPEN_VIP_POSITOTN_ID);
                 }
             });

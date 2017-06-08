@@ -36,8 +36,8 @@
             android:id="@+id/layout_type_glod"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center_vertical"
             android:background="@drawable/dialog_vip_type_bg"
+            android:gravity="center_vertical"
             android:orientation="horizontal"
             android:paddingLeft="10dp"
             android:paddingRight="10dp">
@@ -50,6 +50,7 @@
                 android:src="@drawable/ic_vip_type_s" />
 
             <TextView
+                android:id="@+id/text_1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
@@ -59,10 +60,11 @@
                 android:textSize="@dimen/text_size_big" />
 
             <TextView
+                android:id="@+id/text_type_1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
-                android:text="包月"
+                android:text="15元区"
                 android:textColor="#F78650"
                 android:textSize="@dimen/text_size_big" />
 
@@ -71,7 +73,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:layout_weight="1"
-                android:text="会员"
+                android:text=""
                 android:textColor="#282828"
                 android:textSize="@dimen/text_size_big" />
 
@@ -85,7 +87,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
-                    android:text="￥38.00"
+                    android:text="￥15.00"
                     android:textColor="#db182c"
                     android:textSize="@dimen/text_size_big" />
 
@@ -94,9 +96,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
-                    android:text="￥88.00"
+                    android:text="￥45.00"
                     android:textColor="#B5B5B5"
-                    android:textSize="@dimen/text_size_small" />
+                    android:textSize="@dimen/text_size_small"
+                    android:visibility="gone" />
             </LinearLayout>
         </LinearLayout>
 
@@ -105,8 +108,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:gravity="center_vertical"
             android:background="@drawable/dialog_vip_type_bg"
+            android:gravity="center_vertical"
             android:orientation="horizontal"
             android:padding="10dp">
 
@@ -130,7 +133,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
-                android:text="包年"
+                android:text="30元区"
                 android:textColor="#EE313A"
                 android:textSize="@dimen/text_size_big" />
 
@@ -139,7 +142,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:layout_weight="1"
-                android:text="会员"
+                android:text=""
                 android:textColor="#282828"
                 android:textSize="@dimen/text_size_big" />
 
@@ -153,7 +156,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
-                    android:text="￥68.00"
+                    android:text="￥30.00"
                     android:textColor="#db182c"
                     android:textSize="@dimen/text_size_big" />
 
@@ -162,9 +165,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
-                    android:text="￥128.00"
+                    android:text="￥60.00"
                     android:textColor="#B5B5B5"
-                    android:textSize="@dimen/text_size_small" />
+                    android:textSize="@dimen/text_size_small"
+                    android:visibility="gone" />
             </LinearLayout>
 
         </LinearLayout>

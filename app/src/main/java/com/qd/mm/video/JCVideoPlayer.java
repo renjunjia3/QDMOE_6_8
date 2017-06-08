@@ -467,9 +467,9 @@ public abstract class JCVideoPlayer extends FrameLayout implements View.OnClickL
 //                        vpup = vpup.getParent();
 //                    }
                     if (App.role == 0) {
-                        ToastUtils.getInstance(getContext()).showToast("请开通会员");
+                        ToastUtils.getInstance(getContext()).showToast("请开通15元区");
                     } else if (App.role == 1 || App.role == 2) {
-                        ToastUtils.getInstance(getContext()).showToast("请升级钻石会员");
+                        ToastUtils.getInstance(getContext()).showToast("请升级30元区");
                     }
                     break;
             }

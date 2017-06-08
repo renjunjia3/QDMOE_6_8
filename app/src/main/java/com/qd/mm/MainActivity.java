@@ -159,7 +159,12 @@ public class MainActivity extends SupportActivity {
                         try {
                             TopNoticeInfo topNoticeInfo = JSON.parseObject(s, TopNoticeInfo.class);
                             if (topNoticeInfo.isStatus() && topNoticeInfo.getUser_id() > 0) {
-                                String message = "恭喜用户" + topNoticeInfo.getUser_id() + "成功开通VIP会员";
+                                String message;
+                                if (topNoticeInfo.getType() == 1 || topNoticeInfo.getType() == 4) {
+                                    message = "恭喜用户" + topNoticeInfo.getUser_id() + "成功开通15元区";
+                                } else {
+                                    message = "恭喜用户" + topNoticeInfo.getUser_id() + "成功开通30元区";
+                                }
                                 showNoticeToast(message);
                             }
                         } catch (Exception e) {
@@ -341,11 +346,11 @@ public class MainActivity extends SupportActivity {
                                 switch (App.role) {
                                     case 1:
                                     case 2:
-                                        message1 = "黄金会员";
+                                        message1 = "15元区";
                                         break;
                                     case 3:
                                     case 4:
-                                        message1 = "钻石会员";
+                                        message1 = "30元区";
                                         break;
                                     default:
                                         break;

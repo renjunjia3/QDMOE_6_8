@@ -67,8 +67,4 @@
     </style>
 
     <!-- popupwindow 动画 -->
-    <style name="pop_animation">
-        <item name="android:windowEnterAnimation">@anim/pop_enter</item>
-        <item name="android:windowExitAnimation">@anim/pop_exit</item>
-    </style>
 </resources>
