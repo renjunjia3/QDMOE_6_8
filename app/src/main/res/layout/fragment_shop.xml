@@ -9,7 +9,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <com.mzhguqvn.mzhguq.pull_loadmore.PtrClassicFrameLayout
+        <com.qd.mm.pull_loadmore.PtrClassicFrameLayout
             android:id="@+id/ptr_layout"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -697,7 +697,7 @@
                         android:background="#46433E" />
 
 
-                    <com.mzhguqvn.mzhguq.ui.view.verticalrollingtextview.VerticalRollingTextView
+                    <com.qd.mm.ui.view.verticalrollingtextview.VerticalRollingTextView
                         android:id="@+id/notice_textView"
                         android:layout_width="match_parent"
                         android:layout_height="35dp"
@@ -736,7 +736,7 @@
                             android:textColor="#EC1C1C"
                             android:textSize="@dimen/text_size_large" />
 
-                        <com.mzhguqvn.mzhguq.ui.view.CustomListView
+                        <com.qd.mm.ui.view.CustomListView
                             android:id="@+id/comment_listView"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
@@ -770,7 +770,7 @@
                 </LinearLayout>
 
             </ScrollView>
-        </com.mzhguqvn.mzhguq.pull_loadmore.PtrClassicFrameLayout>
+        </com.qd.mm.pull_loadmore.PtrClassicFrameLayout>
 
         <ImageView
             android:id="@+id/buy_now_fly"
