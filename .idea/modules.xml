@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/QDMOE_2_2017_5_15.iml" filepath="$PROJECT_DIR$/QDMOE_2_2017_5_15.iml" />
+      <module fileurl="file://$PROJECT_DIR$/QDMOE_6_8.iml" filepath="$PROJECT_DIR$/QDMOE_6_8.iml" />
+      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/fragmentation/fragmentation.iml" filepath="$PROJECT_DIR$/fragmentation/fragmentation.iml" />
+      <module fileurl="file://$PROJECT_DIR$/statuslib/statuslib.iml" filepath="$PROJECT_DIR$/statuslib/statuslib.iml" />
+    </modules>
+  </component>
+</project>

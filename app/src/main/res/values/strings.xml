@@ -1,0 +1,32 @@
+<resources>
+    <string name="app_name">米咪影音</string>
+
+    <string name="cube_ptr_pull_down">下拉</string>
+    <string name="cube_ptr_pull_down_to_refresh">下拉刷新</string>
+    <string name="cube_ptr_release_to_refresh">释放刷新</string>
+    <string name="cube_ptr_refreshing">加载中...</string>
+    <string name="cube_ptr_refresh_complete">更新完成.</string>
+
+    <string name="cube_ptr_last_update">上次更新:&#160;</string>
+    <string name="cube_ptr_seconds_ago">&#160;秒之前</string>
+    <string name="cube_ptr_minutes_ago">&#160;分钟之前</string>
+    <string name="cube_ptr_hours_ago">&#160;小时之前</string>
+
+
+    <string name="tips_not_wifi">你当前的使用的非WIFI网络，是否继续播放？</string>
+    <string name="tips_not_wifi_confirm">继续</string>
+    <string name="tips_not_wifi_cancel">退出</string>
+    <string name="no_url">No mUrl</string>
+
+    <string name="tab_try_see">体验区</string>
+    <string name="tab_vip">VIP</string>
+    <string name="tab_glod_vip">黄金VIP</string>
+    <string name="tab_mine">我的</string>
+    <string name="tab_channel">频道</string>
+    <string name="tab_diamond_vip">钻石VIP</string>
+    <string name="tab_diamond_channel">钻石频道</string>
+
+    <string name="vip_dialog_notice">温馨提示：如遇微信支付不能使用 请使用支付宝继续支付</string>
+    <string name="hot_line_notice">尊敬的客户，您有任何问题，可以咨询客服中心，我们将竭诚为你服务</string>
+
+</resources>

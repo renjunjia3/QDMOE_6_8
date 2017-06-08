@@ -1,0 +1,187 @@
+apply plugin: 'com.android.application'
+android {
+    compileSdkVersion rootProject.compileSdkVersion
+    buildToolsVersion rootProject.buildToolsVersion
+    defaultConfig {
+        applicationId "com.mzhguqvn.mzhguq"
+        minSdkVersion rootProject.minSdkVersion
+        targetSdkVersion rootProject.targetSdkVersion
+        versionCode rootProject.versionCode
+        versionName rootProject.versionName
+        ndk {
+            //设置支持的SO库架构
+            abiFilters 'armeabi', 'armeabi-v7a'
+        }
+    }
+    productFlavors {
+
+        NNY_1001 {
+            manifestPlaceholders = [CHANNEL_ID: 1001]
+        }
+        NNY_1002 {
+            manifestPlaceholders = [CHANNEL_ID: 1002]
+        }
+        NNY_1003 {
+            manifestPlaceholders = [CHANNEL_ID: 1003]
+        }
+        NNY_1004 {
+            manifestPlaceholders = [CHANNEL_ID: 1004]
+        }
+        NNY_1005 {
+            manifestPlaceholders = [CHANNEL_ID: 1005]
+        }
+        NNY_1006 {
+            manifestPlaceholders = [CHANNEL_ID: 1006]
+        }
+        NNY_1007 {
+            manifestPlaceholders = [CHANNEL_ID: 1007]
+        }
+        NNY_1008 {
+            manifestPlaceholders = [CHANNEL_ID: 1008]
+        }
+        NNY_1009 {
+            manifestPlaceholders = [CHANNEL_ID: 1009]
+        }
+        NNY_1010 {
+            manifestPlaceholders = [CHANNEL_ID: 1010]
+        }
+        NNY_1011 {
+            manifestPlaceholders = [CHANNEL_ID: 1011]
+        }
+        NNY_1012 {
+            manifestPlaceholders = [CHANNEL_ID: 1012]
+        }
+        NNY_1013 {
+            manifestPlaceholders = [CHANNEL_ID: 1013]
+        }
+        NNY_1014 {
+            manifestPlaceholders = [CHANNEL_ID: 1014]
+        }
+        NNY_1015 {
+            manifestPlaceholders = [CHANNEL_ID: 1015]
+        }
+        NNY_1016 {
+            manifestPlaceholders = [CHANNEL_ID: 1016]
+        }
+        NNY_1017 {
+            manifestPlaceholders = [CHANNEL_ID: 1017]
+        }
+        NNY_1018 {
+            manifestPlaceholders = [CHANNEL_ID: 1018]
+        }
+        NNY_1019 {
+            manifestPlaceholders = [CHANNEL_ID: 1019]
+        }
+        NNY_1020 {
+            manifestPlaceholders = [CHANNEL_ID: 1020]
+        }
+        NNY_1021 {
+            manifestPlaceholders = [CHANNEL_ID: 1021]
+        }
+        NNY_1022 {
+            manifestPlaceholders = [CHANNEL_ID: 1022]
+        }
+        NNY_1023 {
+            manifestPlaceholders = [CHANNEL_ID: 1023]
+        }
+        NNY_1024 {
+            manifestPlaceholders = [CHANNEL_ID: 1024]
+        }
+        NNY_1025 {
+            manifestPlaceholders = [CHANNEL_ID: 1025]
+        }
+        NNY_1026 {
+            manifestPlaceholders = [CHANNEL_ID: 1026]
+        }
+        NNY_1027 {
+            manifestPlaceholders = [CHANNEL_ID: 1027]
+        }
+        NNY_1028 {
+            manifestPlaceholders = [CHANNEL_ID: 1028]
+        }
+        NNY_1029 {
+            manifestPlaceholders = [CHANNEL_ID: 1029]
+        }
+        NNY_1030 {
+            manifestPlaceholders = [CHANNEL_ID: 1030]
+        }
+
+    }
+
+    signingConfigs {
+        release {
+            storeFile file('src/qdmoe.jks')
+            storePassword '123456'
+            keyAlias '1'
+            keyPassword '123456'
+        }
+    }
+    buildTypes {
+        debug {
+            signingConfig signingConfigs.release
+        }
+    }
+    lintOptions {
+        checkReleaseBuilds false
+        abortOnError false
+    }
+    sourceSets {
+        main {
+            jniLibs.srcDirs = ['libs']
+        }
+    }
+    android.applicationVariants.all { variant ->
+        variant.outputs.each { output ->
+            def file = output.outputFile
+            def flavorFlag = "${variant.productFlavors.get(0).name}"
+            output.outputFile = new File(file.parent, flavorFlag +"_"+ rootProject.versionCode + ".apk")
+        }
+    }
+
+}
+
+dependencies {
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    compile 'com.android.support:appcompat-v7:' + rootProject.appcompat
+    compile 'com.android.support:recyclerview-v7:' + rootProject.appcompat
+    compile 'com.android.support:support-v4:' + rootProject.appcompat
+    compile 'com.android.support:design:' + rootProject.appcompat
+    compile project(':fragmentation')
+    compile project(':statuslib')
+    compile files('libs/okhttputils-2_6_2.jar')
+    compile 'org.greenrobot:eventbus:3.0.0'
+    compile 'com.jakewharton:butterknife:8.5.1'
+    compile 'com.github.bumptech.glide:glide:3.7.0'
+    compile 'com.github.bumptech.glide:okhttp3-integration:1.4.0@aar'
+    compile 'com.squareup.okhttp3:okhttp:3.6.0'
+    compile 'com.youth.banner:banner:1.4.9'
+    compile 'com.joooonho:selectableroundedimageview:1.0.1'
+    compile 'com.mylhyl:acp:1.1.7'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:8.5.1'
+    compile 'com.liangfeizc:flowlayout:1.0.0@aar'
+    compile 'com.github.ctiao:DanmakuFlameMaster:0.8.3'
+    compile 'com.github.ctiao:ndkbitmap-armv7a:0.8.3'
+    compile 'com.github.ctiao:ndkbitmap-armv5:0.8.3'
+    compile 'com.github.ctiao:ndkbitmap-x86:0.8.3'
+    compile 'com.alibaba:fastjson:1.2.31'
+    //水平的图片
+    compile('com.alibaba.android:ultraviewpager:1.0.1@aar') {
+        transitive = true
+    }
+    //评星条
+    compile 'me.zhanghai.android.materialratingbar:library:1.0.2'
+    //滑动退出Activity
+    compile 'com.aitangba:swipeback:1.0.1'
+    //友盟统计
+    compile files('libs/umeng-analytics-v6.1.0.jar')
+    //角标
+    compile 'me.leolin:ShortcutBadger:1.1.16@aar'
+    //滚轮选择器
+    compile 'com.contrarywind:Android-PickerView:3.2.4'
+    //第三方支付平台
+    compile files('libs/alipaySdk_v3.0.jar')
+    compile files('libs/libammsdk_v3.0.jar')
+    compile files('libs/paySDK_v3.0.jar')
+    //倒计时
+    compile 'com.github.iwgang:countdownview:2.1.3'
+}

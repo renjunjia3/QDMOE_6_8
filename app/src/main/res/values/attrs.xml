@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="PtrFrameLayout">
+        <!-- Optional. If you put header and content in xml, you can you these to specify them. -->
+        <attr name="ptr_header" format="reference" />
+        <attr name="ptr_content" format="reference" />
+
+        <!-- the resistance when you are moving the frame -->
+        <attr name="ptr_resistance" format="float" />
+
+        <!-- the ration of the height of the header to trigger refresh -->
+        <attr name="ptr_ratio_of_header_height_to_refresh" format="float" />
+
+        <attr name="ptr_duration_to_close" format="integer" />
+        <attr name="ptr_duration_to_close_header" format="integer" />
+
+        <!-- pull to refresh, otherwise release to refresh, default is release to refresh -->
+        <attr name="ptr_pull_to_fresh" format="boolean" />
+
+        <!-- keep header when refreshing-->
+        <attr name="ptr_keep_header_when_refresh" format="boolean" />
+    </declare-styleable>
+
+    <declare-styleable name="PtrClassicHeader">
+        <attr name="ptr_rotate_ani_time" format="integer" />
+    </declare-styleable>
+    <!--垂直滚动的TextView-->
+    <declare-styleable name="VerticalRollingTextView">
+        <!--文字颜色-->
+        <attr name="android:textColor" />
+        <!--文字大小-->
+        <attr name="android:textSize" />
+        <!--滚动动画时长-->
+        <attr name="android:duration" />
+        <!--两次动画之间的间隔-->
+        <attr name="animInterval" format="integer" />
+    </declare-styleable>
+    <!--时间轴-->
+    <declare-styleable name="timeline_style">
+        <attr name="marker" format="color|reference" />
+        <attr name="line" format="color|reference" />
+        <attr name="markerSize" format="dimension" />
+        <attr name="lineSize" format="dimension" />
+        <attr name="lineOrientation" format="enum">
+            <enum name="horizontal" value="0" />
+            <enum name="vertical" value="1" />
+        </attr>
+        <attr name="linePadding" format="dimension" />
+        <attr name="markerInCenter" format="boolean" />
+    </declare-styleable>
+    <!--自定已宽高比例的IMageview-->
+    <declare-styleable name="RatioImageView">
+        <attr name="vertical_weight" format="integer" />
+        <attr name="horizontal_weight" format="integer" />
+        <attr name="base" format="enum">
+            <enum name="horizontal" value="0" />
+            <enum name="vertical" value="1" />
+        </attr>
+    </declare-styleable>
+</resources>
